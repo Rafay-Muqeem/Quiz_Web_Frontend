@@ -1,43 +1,43 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
+    ClipboardDocumentCheckIcon,
+    ClipboardDocumentListIcon,
+    ClipboardDocumentIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import AR from '../Images/AR_Tech.svg';
 
-const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ReactComponent as AR } from '../Images/AR_Tech.svg';
+
+const quizzes = [
+    { name: 'PMA', description: 'Pakistan Military Academy', href: '#', icon: ClipboardDocumentCheckIcon },
+    { name: 'ECAT', description: 'Engineering Colleges Admission Test', href: '#', icon: ClipboardDocumentListIcon },
+    { name: 'MDCAT', description: 'Medical & Dental College Admission Test', href: '#', icon: ClipboardDocumentIcon },
+    { name: 'NAT', description: 'National Aptitude Test', href: '#', icon: ClipboardDocumentCheckIcon },
+    { name: 'GAT', description: 'Graduate Assessment Test', href: '#', icon: ClipboardDocumentListIcon },
+    { name: 'GK', description: 'General Knowledge', href: '#', icon: ClipboardDocumentIcon },
 ]
-const callsToAction = [
-    { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-    { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
+// const callsToAction = [
+//     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
+//     { name: 'Contact sales', href: '#', icon: PhoneIcon },
+// ]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
         <header className="bg-white">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <a href="#" className="-m-10 p-1">
                         <span className="sr-only">Your Company</span>
-                        <img className="h-8 w-auto" src="../Images/AR_Tech.svg" alt="" />
+                        <AR className="h-32 w-32" />
                     </a>
                 </div>
                 <div className="flex lg:hidden">
@@ -68,7 +68,7 @@ export default function Navbar() {
                         >
                             <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                                 <div className="p-4">
-                                    {products.map((item) => (
+                                    {quizzes.map((item) => (
                                         <div
                                             key={item.name}
                                             className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
@@ -86,7 +86,7 @@ export default function Navbar() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                                {/* <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                                     {callsToAction.map((item) => (
                                         <a
                                             key={item.name}
@@ -97,7 +97,7 @@ export default function Navbar() {
                                             {item.name}
                                         </a>
                                     ))}
-                                </div>
+                                </div> */}
                             </Popover.Panel>
                         </Transition>
                     </Popover>
@@ -124,11 +124,12 @@ export default function Navbar() {
                     <div className="flex items-center justify-between">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
-                            <img
+                            {/* <img
                                 className="h-8 w-auto"
                                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                                 alt=""
-                            />
+                            /> */}
+                            <AR className='h-20 w-20' />
                         </a>
                         <button
                             type="button"
@@ -153,7 +154,7 @@ export default function Navbar() {
                                                 />
                                             </Disclosure.Button>
                                             <Disclosure.Panel className="mt-2 space-y-2">
-                                                {[...products, ...callsToAction].map((item) => (
+                                                {quizzes.map((item) => (
                                                     <Disclosure.Button
                                                         key={item.name}
                                                         as="a"
@@ -198,6 +199,56 @@ export default function Navbar() {
                     </div>
                 </Dialog.Panel>
             </Dialog>
+            <div className='m-10 grid gap-8 grid-cols-3 grid-rows-2'>
+                <div className='border-transparent rounded-lg shadow-[10px_6px_24px_2px_rgb(0,0,0,0.12)] h-fit cursor-pointer ease-in-out duration-500 delay-75 hover:shadow-xl hover:scale-105'>
+                    <img className='rounded-t-lg h-56 w-full' src='https://images.unsplash.com/photo-1606326608690-4e0281b1e588?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cXVpenxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='' />
+                    <div className='m-3'>
+                        <h3 className='text-xl font-semibold'>PMA</h3>
+                        <span className='text-sm'>Pakistan Military Academy</span>
+                        <button className='block my-5 px-5 py-2 rounded-xl bg-sky-500 text-white font-semibold'>Start Quiz</button>
+                    </div>
+                </div>
+                <div className='border-transparent rounded-lg shadow-[10px_6px_24px_2px_rgb(0,0,0,0.12)] h-fit cursor-pointer ease-in-out duration-500 delay-75 hover:shadow-xl hover:scale-105'>
+                    <img className='rounded-t-lg h-56 w-full' src='https://images.unsplash.com/photo-1585432959322-4db03962b004?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDN8fHF1aXp8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='' />
+                    <div className='m-3'>
+                        <h3 className='text-xl font-semibold'>ECAT</h3>
+                        <span className='text-sm'>Pakistan Military Academy</span>
+                        <button className='block my-5 px-5 py-2 rounded-xl bg-sky-500 text-white font-semibold'>Start Quiz</button>
+                    </div>
+                </div>
+                <div className='border-transparent rounded-lg shadow-[10px_6px_24px_2px_rgb(0,0,0,0.12)] h-fit cursor-pointer ease-in-out duration-500 delay-75 hover:shadow-xl hover:scale-105'>
+                    <img className='rounded-t-lg h-56 w-full' src='https://images.unsplash.com/photo-1585432959315-d9342fd58eb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHF1aXp8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='' />
+                    <div className='m-3'>
+                        <h3 className='text-xl font-semibold'>MDCAT</h3>
+                        <span className='text-sm'>Pakistan Military Academy</span>
+                        <button className='block my-5 px-5 py-2 rounded-xl bg-sky-500 text-white font-semibold'>Start Quiz</button>
+                    </div>
+                </div>
+                <div className='border-transparent rounded-lg shadow-[10px_6px_24px_2px_rgb(0,0,0,0.12)] h-fit cursor-pointer ease-in-out duration-500 delay-75 hover:shadow-xl hover:scale-105'>
+                    <img className='rounded-t-lg h-56 w-full' src='https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHF1aXp8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='' />
+                    <div className='m-3'>
+                        <h3 className='text-xl font-semibold'>NAT</h3>
+                        <span className='text-sm'>Pakistan Military Academy</span>
+                        <button className='block my-5 px-5 py-2 rounded-xl bg-sky-500 text-white font-semibold'>Start Quiz</button>
+                    </div>
+                </div>
+                <div className='border-transparent rounded-lg shadow-[10px_6px_24px_2px_rgb(0,0,0,0.12)] h-fit cursor-pointer ease-in-out duration-500 delay-75 hover:shadow-xl hover:scale-105'>
+                    <img className='rounded-t-lg h-56 w-full' src='https://images.unsplash.com/photo-1534644107580-3a4dbd494a95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHF1aXp8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='' />
+                    <div className='m-3'>
+                        <h3 className='text-xl font-semibold'>GAT</h3>
+                        <span className='text-sm'>Pakistan Military Academy</span>
+                        <button className='block my-5 px-5 py-2 rounded-xl bg-sky-500 text-white font-semibold'>Start Quiz</button>
+                    </div>
+                </div>
+                <div className='border-transparent rounded-lg shadow-[10px_6px_24px_2px_rgb(0,0,0,0.12)] h-fit cursor-pointer ease-in-out duration-500 delay-100 hover:shadow-xl hover:scale-105'>
+                    <img className='rounded-t-lg h-56 w-full' src='https://images.unsplash.com/photo-1605902394069-ff2ae2430e62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHF1aXp8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='' />
+                    <div className='m-3'>
+                        <h3 className='text-xl font-semibold'>GK</h3>
+                        <span className='text-sm'>Pakistan Military Academy</span>
+                        <button className='block my-5 px-5 py-2 rounded-xl bg-sky-500 text-white font-semibold'>Start Quiz</button>
+                    </div>
+                </div>
+            </div>
         </header>
     )
 }
